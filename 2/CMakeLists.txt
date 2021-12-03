@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(stack_calc)
-add_subdirectory(2/thitd-party/SafeInt)
-add_subdirectory(2/thitd-party/googletest)
+add_subdirectory(2/third-party/SafeInt)
+add_subdirectory(2/third-party/googletest)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -19,8 +19,8 @@ add_executable (
 )
 
 target_include_directories (stack_calc
-            PUBLIC SafeInt
-            PUBLIC googletest/googletest/include/gtest
+            PUBLIC 2/third-party/SafeInt
+            PUBLIC 2/trird-party/googletest/googletest/include/gtest
 )
 
 if (MSVC)
