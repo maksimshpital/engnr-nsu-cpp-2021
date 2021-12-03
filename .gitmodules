@@ -1,3 +1,6 @@
 [submodule "2/third-party/SafeInt"]
 	path = 2/third-party/SafeInt
 	url = https://github.com/dcleblanc/SafeInt.git
+[submodule "2/third-party/googletest"]
+	path = 2/third-party/googletest
+	url = https://github.com/google/googletest.git
