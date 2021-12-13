@@ -25,8 +25,8 @@ target_include_directories (stack_calc
 
 if (MSVC)
     target_compile_options(stack_calc
-            PRIVATE /W3          # warnings level
-            PRIVATE /WX          # treat all warnings as errors
+            PRIVATE /W3          #  warnings level
+            PRIVATE /WX          #  treat all warnings as errors
             )
 else()
     target_compile_options(stack_calc
