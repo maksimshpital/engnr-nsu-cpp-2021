@@ -22,12 +22,12 @@ int main(int args, char *argv[])
     }
     else if (args == 4)
     {
-        if (not(strcmp(argv[1], "-m")) && (not(strcmp(argv[2], "adler32")) || not(strcmp(argv[2], "sum64"))))
+        if (!(strcmp(argv[1], "-m")) && (!(strcmp(argv[2], "adler32")) || !(strcmp(argv[2], "sum64"))))
         {
             mode = argv[2];
             path = argv[3];
         }
-        else if (not(strcmp(argv[2], "-m")) && (not(strcmp(argv[3], "adler32")) || not(strcmp(argv[3], "sum64"))))
+        else if (!(strcmp(argv[2], "-m")) && (!(strcmp(argv[3], "adler32")) || !(strcmp(argv[3], "sum64"))))
         {
             mode = argv[3];
             path = argv[1];
