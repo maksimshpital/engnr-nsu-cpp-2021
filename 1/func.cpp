@@ -17,7 +17,7 @@ uint32_t adler32(ifstream &file)
 uint64_t sum64(istream &file)
 {
     uint64_t s = 0, res = 0;
-    unsigned char ch, end = 0;
+    unsigned char ch = 0, end = 0;
     while (file.read((char*)(ch), sizeof(unsigned char)))
     {
         if (end == 8)
