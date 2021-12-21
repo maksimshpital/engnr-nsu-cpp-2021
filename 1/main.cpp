@@ -66,9 +66,9 @@ int main(int args, char *argv[])
 
     try
     {
-        if (mode[0] == (char)"a")
+        if (mode == "adler32")
             cout << hex << adler32(file) << endl;
-        if (mode[0] == (char)"s")
+        if (mode == "sum64")
             cout << hex << sum64(file) << endl;
     }
     catch (exception &error)
