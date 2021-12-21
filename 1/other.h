@@ -7,5 +7,5 @@
 
 using namespace std;
 
-uint32_t adler32(ifstream &file);
-uint64_t sum64(ifstream &file);
+std::uint32_t adler32(std::ifstream &file);
+std::uint64_t sum64(std::ifstream &file);
