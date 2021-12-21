@@ -66,15 +66,10 @@ int main(int args, char *argv[])
 
     try
     {
-        if (mode == "adler32")
-        {
-            uint32_t hash = adler32(file);
-            cout << hex << hash << endl;
-        }
-        if (mode == "sum64")
-        {
+        if (mode[0] == (char)"a")
+            cout << hex << adler32(file) << endl;
+        if (mode[0] == (char)"s")
             cout << hex << sum64(file) << endl;
-        }
     }
     catch (exception &error)
     {
