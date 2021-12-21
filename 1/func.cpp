@@ -14,7 +14,7 @@ uint32_t adler32(ifstream &file)
     return (s2 << 16) | s1;
 }
 
-uint64_t sum64(istream &file)
+uint64_t sum64(ifstream &file)
 {
     uint64_t s = 0, res = 0;
     unsigned char ch = 0, end = 0;
