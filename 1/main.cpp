@@ -63,18 +63,6 @@ int main(int args, char *argv[])
              << help << endl;
         return 1;
     }
-    if (file.peek() == EOF)
-    {
-        if (mode == "adler32")
-        {
-            cout << 1 << endl;
-        }
-        if (mode == "sum64")
-        {
-            cout << 0 << endl;
-        }
-        return 0;
-    }
 
     try
     {
