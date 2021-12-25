@@ -14,29 +14,30 @@ int main(int argc, char** argv) {
         while(true) {
             std::cout << "command> ";
             std::getline(std::cin, command);
-            if(command == "exit"){
+            if(command == "exit") {
                 break;
             }
             try {
                 creator.proceed(command, ctx);
-            }catch (AppException &exception){
+            } catch (AppException &exception) {
                 std::cerr << exception.what() << std::endl;
                 return -1;
             }
         }
-    }
-    else {
+    } else {
         std::ifstream file(argv[1]);
-        if(!file.is_open()) {
+        if (!file.is_open()) {
             return -1;
         }
-        while(std::getline(file, command)) {
+        while (std::getline(file, command)) {
             try {
                 creator.proceed(command, ctx);
-            }catch (AppException &exception) {
+            } catch (AppException &exception) {
                 std::cerr << exception.what() << std::endl;
                 return -1;
             }
         }
     }
+
+    return 0;
 }

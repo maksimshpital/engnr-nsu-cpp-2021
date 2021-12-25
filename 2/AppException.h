@@ -1,80 +1,84 @@
 #ifndef STACK_CALC_APPEXCEPTION_H
 #define STACK_CALC_APPEXCEPTION_H
 
-
 #include <string>
 
-
-class AppException : std::exception{
+class AppException : std::exception {
 private:
     std::string m_error;
 public:
-    AppException(std::string& err){
-        m_error = err;
-    }
-    const char* what() const noexcept override {
-        return m_error.c_str();
-    }
-    void setError(std::string& msg){
-        m_error = msg;
-    }
+    AppException(std::string& err);
+
+    const char* what() const noexcept;
+
+    void setError(std::string& msg);
+
+    virtual ~AppException() {}
 };
 
 
 class InputException : public AppException {
 public:
-    InputException(std::string& err) : AppException(err) {
-        std::string error("Input Exception: " + err);
-        setError(error);
-    }
+    InputException(std::string& err) : AppException(err);
+
+    virtual ~InputException() {}
 };
 
 class ContextException : public AppException {
 public:
-    ContextException(std::string& err) : AppException(err){
-        std::string error("Context Exception: " + err);
-        setError(error);
-    }
+    ContextException(std::string& err) : AppException(err);
+
+    virtual ~ContextException() {}
 };
 
 class CommandException : public AppException {
 public:
-    CommandException(std::string& err) : AppException(err) {
-        std::string error("Command Exception: " + err);
-        setError(error);
-    }
+    CommandException(std::string& err) : AppException(err);
+
+    virtual ~CommandException() {}
 };
 
 
 class BadInputException : public InputException {
 public:
-    BadInputException(std::string err) : InputException(err){}
+    BadInputException(std::string& err) : InputException(err) {}
+
+    virtual ~BadInputException() {}
 };
 
 class NotFoundInputException : public InputException {
 public:
-    NotFoundInputException(std::string err) : InputException(err){}
-};
+    NotFoundInputException(std::string& err) : InputException(err) {}
 
+    virtual ~NotFoundInputException() {}
+};
 
 class OverflowException : public ContextException {
 public:
-    OverflowException(std::string err) : ContextException(err){}
+    OverflowException(std::string& err) : ContextException(err) {}
+
+    virtual ~OverflowException() {}
 };
 
 class EmptyStack : public ContextException {
 public:
-    EmptyStack(std::string err) : ContextException(err){}
+    EmptyStack(std::string& err) : ContextException(err) {}
+
+    virtual ~EmptyStack() {}
 };
 
 class IncorrectStackDepth : public ContextException {
 public:
-    IncorrectStackDepth(std::string err) : ContextException(err){}
+    IncorrectStackDepth(std::string& err) : ContextException(err) {}
+
+    virtual ~IncorrectStackDepth() {}
 };
 
 class BadCommand : public CommandException {
 public:
-    BadCommand(std::string err) : CommandException(err){}
+    BadCommand(std::string& err) : CommandException(err) {}
+
+    virtual ~BadCommand() {}
 };
 
 #endif //STACK_CALC_APPEXCEPTION_H

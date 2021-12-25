@@ -4,11 +4,12 @@
 #include <stack>
 #include <string>
 #include <map>
+#include "SafeInt.hpp"
 
 class Context {
 public:
-    std::stack<int> stack;
-    std::map<std::string, int> vars;
+    std::stack<SafeInt<int64_t>> stack;
+    std::map<std::string, SafeInt<int64_t>> vars;
 };
 
 

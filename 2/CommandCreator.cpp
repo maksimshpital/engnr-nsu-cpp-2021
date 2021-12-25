@@ -2,24 +2,24 @@
 
 
 void CommandCreator::proceed(std::string& line, Context& ctx) {
-    if(line.empty() || line.at(0) == '#' || line.at(0) == '\r') {
+    if (line.empty() || line.at(0) == '#' || line.at(0) == '\r') {
         return;
     }
-    std::vector<std::string> tokens = Helper::split(line, " ");
-    if(tokens.size() == 1) {
+    std::vector<std::string> tokens = helper::split(line, " ");
+    if (tokens.size() == 1) {
         CommandCreatorNoArg creatorNoArg;
         creatorNoArg.create(tokens.at(0))->execute(ctx);
-    }else if(tokens.size() == 2) {
+    } else if (tokens.size() == 2) {
         CommandCreatorWithArg creatorWithArg;
-        if(Helper::isDigit(tokens.at(1))){
-            SafeInt<int> arg;
-            try{
-                arg = std::stoi(tokens.at(1));
-            }catch (...){
+        if(helper::isDigit(tokens.at(1))) {
+            SafeInt<int64_t> arg;
+            try {
+                arg = SafeInt<int64_t> (tokens.at(1));
+            } catch (...) {
                 throw BadInputException("Invalid input");
             }
             creatorWithArg.create(tokens.at(0))->execute(ctx, arg);
-        }else{
+        } else {
             creatorWithArg.create(tokens.at(0))->execute(ctx, tokens.at(1));
         }
     }

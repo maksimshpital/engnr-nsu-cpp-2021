@@ -1,6 +1,6 @@
 #include "Command.h"
 
-void PushCommand::execute(Context & ctx, int value) const {
+void PushCommand::execute(Context & ctx, SafeInt<int64_t> value) const {
     ctx.stack.push(value);
 }
 
@@ -34,11 +34,11 @@ void AbsCommand::execute(Context & ctx) const {
         throw EmptyStack("Stack is empty");
     }
     try{
-        SafeInt<int> value = ctx.stack.top();
+        SafeInt<int64_t> value = ctx.stack.top();
         ctx.stack.pop();
-        if(value > 0){
+        if (value > 0){
             ctx.stack.push(value);
-        }else {
+        } else {
             ctx.stack.push(-value);
         }
     }catch (...) {
@@ -52,81 +52,64 @@ void PlusCommand::execute(Context & ctx) const {
         throw IncorrectStackDepth("PlusCommand: stack size < 2");
     }
 
-    int val_1 = ctx.stack.top();
+    SafeInt<int64_t> val_1 = ctx.stack.top();
     ctx.stack.pop();
-    int val_2 = ctx.stack.top();
+    SafeInt<int64_t> val_2 = ctx.stack.top();
     ctx.stack.pop();
-    int result;
-    if(!SafeAdd(val_1, val_2, result)){
-        throw OverflowException("Overflow detected in PLUS command");
-    }else {
-        ctx.stack.push(result);
-    }
+
+    ctx.stack.push(val1 + val2);
 }
 
 void MinusCommand::execute(Context & ctx) const {
-    if(ctx.stack.size() < 2) {
+    if (ctx.stack.size() < 2) {
         throw IncorrectStackDepth("MinusCommand: stack size < 2");
     }
-    int val_1 = ctx.stack.top();
+
+    SafeInt<int64_t> val_1 = ctx.stack.top();
     ctx.stack.pop();
-    int val_2 = ctx.stack.top();
+    SafeInt<int64_t> val_2 = ctx.stack.top();
     ctx.stack.pop();
-    int result;
-    if(!SafeSubtract(val_2, val_1, result)) {
-        throw OverflowException("Overflow detected in MINUS command");
-    }else{
-        ctx.stack.push(result);
-    }
+    
+    ctx.stack.push(val2 - val1);
 }
 
 void MulCommand::execute(Context & ctx) const {
-    if(ctx.stack.size() < 2) {
+    if (ctx.stack.size() < 2) {
         throw IncorrectStackDepth("MulCommand: stack size < 2");
     }
-    int val_1 = ctx.stack.top();
+
+    SafeInt<int64_t> val_1 = ctx.stack.top();
     ctx.stack.pop();
-    int val_2 = ctx.stack.top();
+    SafeInt<int64_t> val_2 = ctx.stack.top();
     ctx.stack.pop();
-    int result;
-    if(!SafeMultiply(val_1, val_2, result)) {
-        throw OverflowException("Overflow detected in MULTIPLE command");
-    } else {
-        ctx.stack.push(result);
-    }
+
+    ctx.stack.push(val1 * val2);
 }
 
 void DivCommand::execute(Context & ctx) const {
-    if(ctx.stack.size() < 2) {
+    if (ctx.stack.size() < 2) {
         throw IncorrectStackDepth("DivCommand: stack size < 2");
     }
-    int val_1 = ctx.stack.top();
+
+    SafeInt<int64_t> val_1 = ctx.stack.top();
     ctx.stack.pop();
-    int val_2 = ctx.stack.top();
+    SafeInt<int64_t> val_2 = ctx.stack.top();
     ctx.stack.pop();
-    int result;
-    if(!SafeDivide(val_2, val_1, result)) {
-        throw OverflowException("Overflow detected in DIVIDE command");
-    }else {
-        ctx.stack.push(result);
-    }
+
+    ctx.stack.push(val2 \ val1);
 }
 
 void ReadCommand::execute(Context & ctx) const {
     std::string str_value;
     std::cout << "num> ";
     std::getline(std::cin, str_value);
-    try{
-        SafeInt<int> int_value = std::stoi(str_value);
-        ctx.stack.push(int_value);
-    }catch (...) {
-        throw OverflowException("Invalid number detected...");
-    }
+    SafeInt<int64_t> value = SafeInt<int64_t>::safeAtoi (str_value.c_str());
+    ctx.stack.push(value);
 }
 
 void PrintCommand::execute(Context & ctx) const {
-    if(ctx.stack.empty()) {
+    if (ctx.stack.empty()) {
         throw EmptyStack("stack is empty");
     }
-    std::cout << ctx.stack.top() << std::endl;
+    std::cout << *(ctx.stack.top().data_ptr()) << std::endl;
 }
