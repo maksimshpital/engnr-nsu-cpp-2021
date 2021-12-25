@@ -11,7 +11,7 @@
 
 class Command {
 public:
-    virtual void execute(Context&) const {
+    virtual void execute(Context&) const {}
     virtual void execute(Context&, int64_t) const {}
     virtual void execute(Context&, const std::string&) const {}
 };
