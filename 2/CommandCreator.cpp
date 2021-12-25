@@ -2,7 +2,7 @@
 #include "CommandCreator.h"
 #include "SafeInt.hpp"
 
-std::unique_ptr<Command> create(const std::string& str) {
+std::unique_ptr<Command> CommandCreator::create(const std::string& str) {
     return std::unique_ptr<Command> (nullptr);
 }
 
