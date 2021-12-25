@@ -11,7 +11,7 @@
 
 class CommandCreator {
 protected:
-    virtual std::unique_ptr<Command> create(const std::string&) const {}
+    virtual std::unique_ptr<Command> create(const std::string&) const;
 public:
     void proceed(std::string&, Context&);
 };

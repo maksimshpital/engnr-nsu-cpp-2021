@@ -17,13 +17,12 @@ void CommandCreator::proceed(std::string& line, Context& ctx) {
     } else if (tokens.size() == 2) {
         CommandCreatorWithArg creatorWithArg;
         if(helper::isDigit(tokens.at(1))) {
-            SafeInt<int64_t> arg;
             try {
-                arg = SafeInt<int64_t> (tokens.at(1));
+                SafeInt<int64_t> arg = SafeAtoi<int64_t>(tokens.at(1));
+                creatorWithArg.create(tokens.at(0))->execute(ctx, arg);
             } catch (...) {
                 throw BadInputException("Invalid input");
             }
-            creatorWithArg.create(tokens.at(0))->execute(ctx, arg);
         } else {
             creatorWithArg.create(tokens.at(0))->execute(ctx, tokens.at(1));
         }
