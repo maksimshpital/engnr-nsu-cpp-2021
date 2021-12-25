@@ -19,7 +19,7 @@ void CommandCreator::proceed(std::string& line, Context& ctx) {
         CommandCreatorWithArg creatorWithArg;
         if(helper::isDigit(tokens.at(1))) {
             try {
-                SafeInt<int64_t> arg = SafeInt::SafeAtoI<int64_t>(tokens.at(1));
+                SafeInt<int64_t> arg = SafeInt<int64_t>::SafeAtoI(tokens.at(1));
                 creatorWithArg.create(tokens.at(0))->execute(ctx, arg);
             } catch (...) {
                 throw BadInputException("Invalid input");
