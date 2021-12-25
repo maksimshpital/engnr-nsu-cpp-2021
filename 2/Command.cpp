@@ -103,7 +103,7 @@ void ReadCommand::execute(Context & ctx) const {
     std::string str_value;
     std::cout << "num> ";
     std::getline(std::cin, str_value);
-    SafeInt<int64_t> value = SafeInt<int64_t>::safeAtoI(str_value.c_str());
+    SafeInt<int64_t> value = SafeInt<int64_t>::SafeAtoI(str_value.c_str());
     ctx.stack.push(value);
 }
 
