@@ -1,6 +1,8 @@
 #ifndef STACK_CALC_COMMANDCREATOR_H
 #define STACK_CALC_COMMANDCREATOR_H
 
+#include <memory>
+
 #include "Command.h"
 #include "Helper.h"
 #include "Context.h"
@@ -9,21 +11,21 @@
 
 class CommandCreator {
 protected:
-    virtual Command* create(const std::string&) const = 0;
+    virtual std::unique_ptr<Command> create(const std::string&) const {}
 public:
     void proceed(std::string&, Context&);
 };
 
 class CommandCreatorWithArg : public CommandCreator {
 public:
-    virtual Command* create(const std::string&) const;
+    virtual std::unique_ptr<Command> create(const std::string&) const;
 
     virtual ~CommandCreatorWithArg() {}
 };
 
 class CommandCreatorNoArg : public CommandCreator {
 public:
-    virtual Command* create(const std::string&) const;
+    virtual std::unique_ptr<Command> create(const std::string&) const;
 
     virtual ~CommandCreatorNoArg() {}
 };

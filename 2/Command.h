@@ -11,9 +11,9 @@
 
 class Command {
 public:
-    virtual void execute(Context&) const = 0;
-    virtual void execute(Context&, int64_t) const  = 0;
-    virtual void execute(Context&, const std::string&) const = 0;
+    virtual void execute(Context&) const {};
+    virtual void execute(Context&, int64_t) const {};
+    virtual void execute(Context&, const std::string&) const {};
 };
 
 class PushCommand : public Command {

@@ -41,42 +41,42 @@ public:
 
 class BadInputException : public InputException {
 public:
-    BadInputException(std::string& err) : InputException(err) {}
+    BadInputException(std::string err) : InputException(err) {}
 
     virtual ~BadInputException() {}
 };
 
 class NotFoundInputException : public InputException {
 public:
-    NotFoundInputException(std::string& err) : InputException(err) {}
+    NotFoundInputException(std::string err) : InputException(err) {}
 
     virtual ~NotFoundInputException() {}
 };
 
 class OverflowException : public ContextException {
 public:
-    OverflowException(std::string& err) : ContextException(err) {}
+    OverflowException(std::string err) : ContextException(err) {}
 
     virtual ~OverflowException() {}
 };
 
 class EmptyStack : public ContextException {
 public:
-    EmptyStack(std::string& err) : ContextException(err) {}
+    EmptyStack(std::string err) : ContextException(err) {}
 
     virtual ~EmptyStack() {}
 };
 
 class IncorrectStackDepth : public ContextException {
 public:
-    IncorrectStackDepth(std::string& err) : ContextException(err) {}
+    IncorrectStackDepth(std::string err) : ContextException(err) {}
 
     virtual ~IncorrectStackDepth() {}
 };
 
 class BadCommand : public CommandException {
 public:
-    BadCommand(std::string& err) : CommandException(err) {}
+    BadCommand(std::string err) : CommandException(err) {}
 
     virtual ~BadCommand() {}
 };

@@ -1,10 +1,11 @@
+#include <memory>
 #include "CommandCreator.h"
-
 
 void CommandCreator::proceed(std::string& line, Context& ctx) {
     if (line.empty() || line.at(0) == '#' || line.at(0) == '\r') {
         return;
     }
+
     std::vector<std::string> tokens = helper::split(line, " ");
     if (tokens.size() == 1) {
         CommandCreatorNoArg creatorNoArg;
@@ -25,34 +26,34 @@ void CommandCreator::proceed(std::string& line, Context& ctx) {
     }
 }
 
-Command* CommandCreatorWithArg::create(const std::string & cmdName) const {
+std::unique_ptr<Command> CommandCreatorWithArg::create(const std::string & cmdName) const {
     if(cmdName == "PUSH") {
-        return new PushCommand();
+        return std::make_unqiue<PushCommand> ();
     } else if(cmdName == "PEEK") {
-        return new PeekCommand();
+        return std::make_unique<PeekCommand> ();
     } else {
         throw BadCommand("bad command (with arg)");
     }
 }
 
 
-Command* CommandCreatorNoArg::create(const std::string & cmdName) const {
+std::unique_ptr<Command> CommandCreatorNoArg::create(const std::string & cmdName) const {
     if(cmdName == "POP") {
-        return new PopCommand();
+        return std::make_unique<PopCommand> ();
     }else if(cmdName == "ABS") {
-        return new AbsCommand();
+        return std::make_unique<AbsCommand> ();
     }else if(cmdName == "PLUS") {
-        return new PlusCommand();
+        return std::make_unique<PlusCommand> ();
     }else if(cmdName == "MINUS") {
-        return new MinusCommand();
+        return std::make_unique<MinusCommand> ();
     }else if(cmdName == "MUL") {
-        return new MulCommand();
+        return std::make_unique<MulCommand> ();
     }else if(cmdName == "DIV") {
-        return new DivCommand();
+        return std::make_unique<DivCommand> ();
     }else if(cmdName == "READ") {
-        return new ReadCommand();
+        return std::make_unique<ReadCommand> ();
     }else if(cmdName == "PRINT") {
-        return new PrintCommand();
+        return std::make_unique<PrintCommand> ();
     }else {
         throw BadCommand("bad command (with no arg)");
     }
