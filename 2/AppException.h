@@ -7,7 +7,7 @@ class AppException : std::exception {
 private:
     std::string m_error;
 public:
-    AppException(std::string& err);
+    AppException(std::string& err) : m_error(err) {}
 
     const char* what() const noexcept;
 
@@ -19,21 +19,21 @@ public:
 
 class InputException : public AppException {
 public:
-    InputException(std::string& err) : AppException(err);
+    InputException(std::string& err);
 
     virtual ~InputException() {}
 };
 
 class ContextException : public AppException {
 public:
-    ContextException(std::string& err) : AppException(err);
+    ContextException(std::string& err);
 
     virtual ~ContextException() {}
 };
 
 class CommandException : public AppException {
 public:
-    CommandException(std::string& err) : AppException(err);
+    CommandException(std::string& err);
 
     virtual ~CommandException() {}
 };

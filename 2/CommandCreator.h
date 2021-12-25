@@ -8,7 +8,7 @@
 #include "SafeInt.hpp"
 
 class CommandCreator {
-private:
+protected:
     virtual Command* create(const std::string&) const = 0;
 public:
     void proceed(std::string&, Context&);
@@ -16,14 +16,14 @@ public:
 
 class CommandCreatorWithArg : public CommandCreator {
 public:
-    Command* create(const std::string&) const;
+    virtual Command* create(const std::string&) const;
 
     virtual ~CommandCreatorWithArg() {}
 };
 
 class CommandCreatorNoArg : public CommandCreator {
 public:
-    Command* create(const std::string&) const;
+    virtual Command* create(const std::string&) const;
 
     virtual ~CommandCreatorNoArg() {}
 };

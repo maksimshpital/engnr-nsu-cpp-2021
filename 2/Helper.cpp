@@ -5,10 +5,10 @@ std::vector<std::string> helper::split(std::string line, const std::string& deli
     int pos = 0;
     while ((pos = (int)line.find(delimiter)) != (int)std::string::npos) {
         std::string token = line.substr(0, pos);
-        result.push_back(Helper::strip(token));
+        result.push_back(helper::strip(token));
         line.erase(0, pos + delimiter.length());
     }
-    result.push_back(Helper::strip(line));
+    result.push_back(helper::strip(line));
     return result;
 }
 
