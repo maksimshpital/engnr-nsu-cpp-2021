@@ -83,7 +83,7 @@ void MulCommand::execute(Context & ctx) const {
     SafeInt<int64_t> val_2 = ctx.stack.top();
     ctx.stack.pop();
 
-    ctx.stack.push(val1 * val2);
+    ctx.stack.push(val_1 * val_2);
 }
 
 void DivCommand::execute(Context & ctx) const {
@@ -103,7 +103,7 @@ void ReadCommand::execute(Context & ctx) const {
     std::string str_value;
     std::cout << "num> ";
     std::getline(std::cin, str_value);
-    SafeInt<int64_t> value = SafeInt<int64_t>::safeAtoi (str_value.c_str());
+    SafeInt<int64_t> value = SafeInt<int64_t>::safeAtoI(str_value.c_str());
     ctx.stack.push(value);
 }
 
