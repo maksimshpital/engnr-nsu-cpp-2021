@@ -11,6 +11,7 @@ add_executable (
         Helper.h
         Helper.cpp
         Command.h
+	Command.cpp
         Context.h
 	CommandCreator.h
         CommandCreator.cpp
