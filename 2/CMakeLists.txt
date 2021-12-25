@@ -12,6 +12,7 @@ add_executable (
         Helper.cpp
         Command.h
         Context.h
+	CommandCreator.h
         CommandCreator.cpp
         AppException.cpp
 )
