@@ -1,7 +1,7 @@
 #include "AppException.h"
 
-const char* AppException::what() const {
-	retunr m_error.c_str();
+const char* AppException::what() const noexcept {
+	return m_error.c_str();
 }
 
 void AppException::setError(std::string& msg) {
@@ -9,7 +9,7 @@ void AppException::setError(std::string& msg) {
 }
 
 InputException::InputException(std::string& err) : AppException(err) {
-	std::sting error("Input Exception" + err);
+	std::string error("Input Exception" + err);
 	setError(error);
 }
 

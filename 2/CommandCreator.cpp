@@ -1,6 +1,10 @@
 #include <memory>
 #include "CommandCreator.h"
 
+std::unique_ptr<Command> create(const std::string& str) {
+    return std::unique_ptr<Command> (nullptr);
+}
+
 void CommandCreator::proceed(std::string& line, Context& ctx) {
     if (line.empty() || line.at(0) == '#' || line.at(0) == '\r') {
         return;
@@ -28,7 +32,7 @@ void CommandCreator::proceed(std::string& line, Context& ctx) {
 
 std::unique_ptr<Command> CommandCreatorWithArg::create(const std::string & cmdName) const {
     if(cmdName == "PUSH") {
-        return std::make_unqiue<PushCommand> ();
+        return std::make_unique<PushCommand> ();
     } else if(cmdName == "PEEK") {
         return std::make_unique<PeekCommand> ();
     } else {
