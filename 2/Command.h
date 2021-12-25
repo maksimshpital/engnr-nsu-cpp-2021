@@ -12,13 +12,13 @@
 class Command {
 public:
     virtual void execute(Context&) const {}
-    virtual void execute(Context&, int64_t) const {}
+    virtual void execute(Context&, SafeInt<int64_t>) const {}
     virtual void execute(Context&, const std::string&) const {}
 };
 
 class PushCommand : public Command {
 public:
-    virtual void execute(Context&, int64_t) const;
+    virtual void execute(Context&, SafeInt<int64_t>) const;
     virtual void execute(Context&, const std::string&) const;
 
     virtual ~PushCommand() {}

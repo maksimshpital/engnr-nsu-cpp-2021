@@ -57,7 +57,7 @@ void PlusCommand::execute(Context & ctx) const {
     SafeInt<int64_t> val_2 = ctx.stack.top();
     ctx.stack.pop();
 
-    ctx.stack.push(val1 + val2);
+    ctx.stack.push(val_1 + val_2);
 }
 
 void MinusCommand::execute(Context & ctx) const {
@@ -70,7 +70,7 @@ void MinusCommand::execute(Context & ctx) const {
     SafeInt<int64_t> val_2 = ctx.stack.top();
     ctx.stack.pop();
     
-    ctx.stack.push(val2 - val1);
+    ctx.stack.push(val_2 - val_1);
 }
 
 void MulCommand::execute(Context & ctx) const {
@@ -96,7 +96,7 @@ void DivCommand::execute(Context & ctx) const {
     SafeInt<int64_t> val_2 = ctx.stack.top();
     ctx.stack.pop();
 
-    ctx.stack.push(val2 \ val1);
+    ctx.stack.push(val_2 / val_1);
 }
 
 void ReadCommand::execute(Context & ctx) const {
