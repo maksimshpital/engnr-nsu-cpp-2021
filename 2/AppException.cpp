@@ -10,7 +10,7 @@ void AppException::setError(std::string& msg) {
 
 InputException::InputException(std::string& err) : AppException(err) {
 	std::string error("Input Exception" + err);
-	setError(error);
+	setError(error);	
 }
 
 ContextException::ContextException(std::string& err) : AppException(err) {
