@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
     if(argc == 1) {
         while (true) {
             // std::cout << "command> ";
-            if (std::getline(std::cin, command) {
+            if (std::getline(std::cin, command)) {
                 // if(command == "exit") {
                 //     break;
                 // }
