@@ -14,6 +14,8 @@ public:
     virtual void execute(Context&) const {}
     virtual void execute(Context&, SafeInt<int64_t>) const {}
     virtual void execute(Context&, const std::string&) const {}
+    
+    virtual ~Command () {}
 };
 
 class PushCommand : public Command {

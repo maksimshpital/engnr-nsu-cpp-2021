@@ -14,6 +14,8 @@ protected:
     virtual std::unique_ptr<Command> create(const std::string&) const;
 public:
     void proceed(std::string&, Context&);
+
+    virtual ~CommandCreator () {} 
 };
 
 class CommandCreatorWithArg : public CommandCreator {
