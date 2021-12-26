@@ -1,0 +1,14 @@
+# myVar = -14 / 5
+PUSH -14
+PUSH 5
+DIV
+PEEK myVar
+POP
+
+# PRINT (9 - myVar) * 20
+PUSH 9
+PUSH myVar
+MINUS
+PUSH 20
+MUL
+PRINT

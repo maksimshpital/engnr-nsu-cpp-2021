@@ -1,0 +1,303 @@
+{
+    "tests":
+    [
+      {
+        "name": "empty [via stdin]",
+        "params": [],
+        "stdin": "",
+        "status_code": {
+          "allowed": [0]
+        },
+        "stdout": {
+          "allowed": [""]
+        },
+        "stderr": {
+          "allowed": [""]
+        }
+      },
+      {
+        "name": "empty [via file]",
+        "params": ["resources/lab2/test_empty/file"],
+        "stdin": null,
+        "status_code": {
+          "allowed": [0]
+        },
+        "stdout": {
+          "allowed": [""]
+        },
+        "stderr": {
+          "allowed": [""]
+        }
+      },
+
+
+      {
+        "name": "from the task's description [via stdin]",
+        "params": [],
+        "stdin": "# myVar = -14 / 5\nPUSH -14\nPUSH 5\nDIV\nPEEK myVar\nPOP\n\n# PRINT (9 - myVar) * 20\nPUSH 9\nPUSH myVar\nMINUS\nPUSH 20\nMUL\nPRINT",
+        "status_code": {
+          "allowed": [0]
+        },
+        "stdout": {
+          "allowed": ["220", "220\n"]
+        },
+        "stderr": {
+          "allowed": [""]
+        }
+      },
+      {
+        "name": "from the task's description [via file]",
+        "params": ["resources/lab2/test_desc-example/file"],
+        "stdin": null,
+        "status_code": {
+          "allowed": [0]
+        },
+        "stdout": {
+          "allowed": ["220", "220\n"]
+        },
+        "stderr": {
+          "allowed": [""]
+        }
+      },
+
+
+      {
+        "name": "28+66 [via stdin]",
+        "params": [],
+        "stdin": "PUSH 28\nPUSH 66\nPLUS\nPRINT\nPOP",
+        "status_code": {
+          "allowed": [0]
+        },
+        "stdout": {
+          "allowed": ["94", "94\n"]
+        },
+        "stderr": {
+          "allowed": [""]
+        }
+      },
+      {
+        "name": "28+66 [via file]",
+        "params": ["resources/lab2/test_simple/file"],
+        "stdin": null,
+        "status_code": {
+          "allowed": [0]
+        },
+        "stdout": {
+          "allowed": ["94", "94\n"]
+        },
+        "stderr": {
+          "allowed": [""]
+        }
+      },
+
+
+      {
+        "name": "|-90 * 1| / 45 [via stdin]",
+        "params": [],
+        "stdin": "PUSH -90\nPRINT\n\nPUSH 1\nPRINT\n\nMUL\nPRINT\n\nABS\nPRINT\n\nPEEK myVar\nPRINT\n\nPOP\n\nPUSH myVar\nPRINT\n\nPUSH 45\nPRINT\n\nDIV\nPRINT",
+        "status_code": {
+          "allowed": [0]
+        },
+        "stdout": {
+          "allowed": ["-90\n1\n-90\n90\n90\n90\n45\n2", "-90\n1\n-90\n90\n90\n90\n45\n2\n"]
+        },
+        "stderr": {
+          "allowed": [""]
+        }
+      },
+      {
+        "name": "|-90 * 1| / 45 [via file]",
+        "params": ["resources/lab2/test_complex1/file"],
+        "stdin": null,
+        "status_code": {
+          "allowed": [0]
+        },
+        "stdout": {
+          "allowed": ["-90\n1\n-90\n90\n90\n90\n45\n2", "-90\n1\n-90\n90\n90\n90\n45\n2\n"]
+        },
+        "stderr": {
+          "allowed": [""]
+        }
+      },
+
+
+      {
+        "name": "|-72| / 4 [via stdin]",
+        "params": [],
+        "stdin": "PUSH -72\nPRINT\n\nABS\nPRINT\n\nPUSH 4\nPRINT\n\nDIV\nPRINT",
+        "status_code": {
+          "allowed": [0]
+        },
+        "stdout": {
+          "allowed": ["-72\n72\n4\n18", "-72\n72\n4\n18\n"]
+        },
+        "stderr": {
+          "allowed": [""]
+        }
+      },
+      {
+        "name": "|-72| / 4 [via file]",
+        "params": ["resources/lab2/test_complex2/file"],
+        "stdin": null,
+        "status_code": {
+          "allowed": [0]
+        },
+        "stdout": {
+          "allowed": ["-72\n72\n4\n18", "-72\n72\n4\n18\n"]
+        },
+        "stderr": {
+          "allowed": [""]
+        }
+      },
+
+
+      {
+        "name": "((a + c) * d) - (e / (f - g)) [via stdin]",
+        "params": [],
+        "stdin": "PUSH 4\nPEEK a\nPOP\nPUSH 6\nPEEK c\nPOP\nPUSH 2\nPEEK d\nPOP\nPUSH 36\nPEEK e\nPOP\nPUSH 11\nPEEK f\nPOP\nPUSH 2\nPEEK g\nPOP\nPUSH a\nPUSH c\nPLUS\nPUSH d\nMUL\nPUSH e\nPUSH f\nPUSH g\nMINUS\nDIV\nMINUS\nPRINT",
+        "status_code": {
+          "allowed": [0]
+        },
+        "stdout": {
+          "allowed": ["16", "16\n"]
+        },
+        "stderr": {
+          "allowed": [""]
+        }
+      },
+      {
+        "name": "((a + c) * d) - (e / (f - g)) [via file]",
+        "params": ["resources/lab2/test_complex3/file"],
+        "stdin": null,
+        "status_code": {
+          "allowed": [0]
+        },
+        "stdout": {
+          "allowed": ["16", "16\n"]
+        },
+        "stderr": {
+          "allowed": [""]
+        }
+      },
+
+
+      {
+        "name": "PRINT empty stack (has to print error) [via stdin]",
+        "params": [],
+        "stdin": "PRINT",
+        "status_code": {
+          "banned": [0]
+        },
+        "stdout": {
+          "allowed": [""]
+        },
+        "stderr": {
+          "banned": [""]
+        }
+      },
+      {
+        "name": "PRINT empty stack (has to print error) [via file]",
+        "params": ["resources/lab2/test_empty-stack-error1/file"],
+        "stdin": null,
+        "status_code": {
+          "banned": [0]
+        },
+        "stdout": {
+          "allowed": [""]
+        },
+        "stderr": {
+          "banned": [""]
+        }
+      },
+
+
+      {
+        "name": "POP empty stack (has to print error) [via stdin]",
+        "params": [],
+        "stdin": "POP",
+        "status_code": {
+          "banned": [0]
+        },
+        "stdout": {
+          "allowed": [""]
+        },
+        "stderr": {
+          "banned": [""]
+        }
+      },
+      {
+        "name": "POP empty stack (has to print error) [via file]",
+        "params": ["resources/lab2/test_empty-stack-error2/file"],
+        "stdin": null,
+        "status_code": {
+          "banned": [0]
+        },
+        "stdout": {
+          "allowed": [""]
+        },
+        "stderr": {
+          "banned": [""]
+        }
+      },
+
+
+      {
+        "name": "POP then PRINT empty stack (has to print 94 and then an error) [via stdin]",
+        "params": [],
+        "stdin": "PUSH 28\nPUSH 66\nPLUS\nPRINT\nPOP\nPRINT",
+        "status_code": {
+          "banned": [0]
+        },
+        "stdout": {
+          "allowed": ["94", "94\n"]
+        },
+        "stderr": {
+          "banned": [""]
+        }
+      },
+      {
+        "name": "POP then PRINT empty stack (has to print 94 and then an error) [via file]",
+        "params": ["resources/lab2/test_empty-stack-error3/file"],
+        "stdin": null,
+        "status_code": {
+          "banned": [0]
+        },
+        "stdout": {
+          "allowed": ["94", "94\n"]
+        },
+        "stderr": {
+          "banned": [""]
+        }
+      },
+
+
+      {
+        "name": "Try to invoke a binary operation when the stack contains only 1 element [via stdin]",
+        "params": [],
+        "stdin": "PUSH -15\nPLUS\n",
+        "status_code": {
+          "banned": [0]
+        },
+        "stdout": {
+          "allowed": [""]
+        },
+        "stderr": {
+          "banned": [""]
+        }
+      },
+      {
+        "name": "Try to invoke a binary operation when the stack contains only 1 element [via file]",
+        "params": ["resources/lab2/test_empty-stack-error4/file"],
+        "stdin": null,
+        "status_code": {
+          "banned": [0]
+        },
+        "stdout": {
+          "allowed": [""]
+        },
+        "stderr": {
+          "banned": [""]
+        }
+      }
+    ]
+  }
