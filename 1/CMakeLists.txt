@@ -1,6 +1,19 @@
-cmake_minimum_required(VERSION 3.21)
-project(hasher_win)
+cmake_minimum_required(VERSION 3.20)
+project(lab1)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
-add_executable(hasher_win main.cpp)
+add_executable(lab_1 main.cpp Hash.h Hash.cpp)
+
+if (MSVC)
+    target_compile_options(lab_1
+            PRIVATE /W4
+            PRIVATE /WX
+            )
+else()
+    target_compile_options(lab_1
+            PRIVATE -Wall
+            PRIVATE -pedantic
+            PRIVATE -Werror
+            )
+endif()
