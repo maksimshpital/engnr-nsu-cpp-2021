@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/run_tests.dir/unit_tests.cpp.o CMakeFiles/run_tests.dir/home/user/tmp/stack-calc/AppException.cpp.o CMakeFiles/run_tests.dir/home/user/tmp/stack-calc/Command.cpp.o CMakeFiles/run_tests.dir/home/user/tmp/stack-calc/CommandCreator.cpp.o CMakeFiles/run_tests.dir/home/user/tmp/stack-calc/Helper.cpp.o  -o run_tests -lgtest -lpthread 

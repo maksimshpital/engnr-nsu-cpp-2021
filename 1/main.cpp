@@ -47,6 +47,16 @@ int64_t charTo64bitNum(char a[]) {
     return n;
 }
 
+int64_t read64bitFromFile(std::ifstream& in_file) {
+    char a[8] = { 0 };
+    for (int i = 0; i < 8; i++) {
+        in_file.read(&a[i], 1);
+        if (!in_file)
+            break;
+    }
+    return charTo64bitNum(a);
+}
+
 uint64_t sum64(std::string& filename) {
     std::ifstream in_file;
     uint64_t x;
@@ -55,13 +65,11 @@ uint64_t sum64(std::string& filename) {
     if(!in_file.is_open()) {
         throw std::invalid_argument("File not found");
     }
-    char a[8] = {0};
     while(true){
-        in_file.read(a, 8);
+        x = read64bitFromFile(in_file);
+        res += x;
         if (!in_file)
             break;
-        x = charTo64bitNum(a);
-        res += x;
     }
     return res;
 }
