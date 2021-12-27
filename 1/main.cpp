@@ -1,4 +1,4 @@
-#include "Hash"
+#include "Hash.h"
 
 
 int main(int args, char *argv[])
