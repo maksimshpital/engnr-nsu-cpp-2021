@@ -1,4 +1,4 @@
-#include "other.h"
+#include "Hash"
 
 
 uint64_t sum64(ifstream &inf){
