@@ -25,6 +25,7 @@ target_include_directories (stack_calc
             PUBLIC trird-party/googletest/googletest/include/gtest
 )
 
+enable_testing()
 
 if (MSVC)
     target_compile_options(stack_calc
@@ -37,4 +38,3 @@ else()
             PRIVATE -Werror      # treat all warnings as errors
             )
 endif()
-enable_testing()
