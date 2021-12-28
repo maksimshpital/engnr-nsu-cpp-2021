@@ -4,9 +4,8 @@ add_subdirectory(third-party/SafeInt)
 add_subdirectory(third-party/googletest)
 add_subdirectory(tests)
 
-enable_testing()
-
 set(CMAKE_CXX_STANDARD 14)
+enable_testing()
 
 add_executable (
         stack_calc
