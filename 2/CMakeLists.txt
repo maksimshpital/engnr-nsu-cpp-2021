@@ -6,8 +6,6 @@ add_subdirectory(tests)
 
 set(CMAKE_CXX_STANDARD 14)
 
-enable_testing()
-
 add_executable (
         stack_calc
         main.cpp
@@ -26,6 +24,8 @@ target_include_directories (stack_calc
             PUBLIC third-party/SafeInt
             PUBLIC trird-party/googletest/googletest/include/gtest
 )
+
+enable_testing()
 
 if (MSVC)
     target_compile_options(stack_calc
