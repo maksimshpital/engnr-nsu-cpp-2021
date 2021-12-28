@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(stack_calc)
 add_subdirectory(third-party/SafeInt)
 add_subdirectory(third-party/googletest)
+add_subdirectory(tests)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -36,3 +37,4 @@ else()
             PRIVATE -Werror      # treat all warnings as errors
             )
 endif()
+enable_testing()
