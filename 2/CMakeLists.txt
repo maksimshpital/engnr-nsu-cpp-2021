@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.10)
 project(stack_calc)
 add_subdirectory(third-party/SafeInt)
 add_subdirectory(third-party/googletest)
-add_subdirectory(tests)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -25,7 +24,6 @@ target_include_directories (stack_calc
             PUBLIC trird-party/googletest/googletest/include/gtest
 )
 
-enable_testing()
 
 if (MSVC)
     target_compile_options(stack_calc
