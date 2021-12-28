@@ -11,5 +11,5 @@ add_executable(run_tests unit_tests.cpp
         ../Context.h
         ../Helper.cpp
         ../Helper.h)
-
+enable_testing()
 target_link_libraries(run_tests gtest pthread)
