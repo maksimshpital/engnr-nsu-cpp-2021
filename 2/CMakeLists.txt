@@ -6,6 +6,8 @@ add_subdirectory(tests)
 
 set(CMAKE_CXX_STANDARD 14)
 
+enable_testing()
+
 add_executable (
         stack_calc
         main.cpp
@@ -18,8 +20,6 @@ add_executable (
         CommandCreator.cpp
         AppException.cpp
 )
-
-enable_testing()
 
 
 target_include_directories (stack_calc
