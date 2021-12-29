@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.10)
 project(stack_calc)
 add_subdirectory(third-party/SafeInt)
 add_subdirectory(third-party/googletest)
-add_subdirectory( test ./test )
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -19,7 +18,7 @@ add_executable (
         CommandCreator.cpp
         AppException.cpp
 )
-enable_testing()
+
 
 target_include_directories (stack_calc
             PUBLIC third-party/SafeInt
