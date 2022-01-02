@@ -18,6 +18,7 @@ add_executable (
 	CommandCreator.h
         CommandCreator.cpp
         AppException.cpp
+        SafeInt.h
 )
 
 enable_testing()
