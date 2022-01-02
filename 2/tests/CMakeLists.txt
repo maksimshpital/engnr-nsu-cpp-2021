@@ -10,6 +10,7 @@ add_executable(run_tests unit_tests.cpp
         ../CommandCreator.h
         ../Context.h
         ../Helper.cpp
-        ../Helper.h)
+        ../Helper.h
+        ../SafeInt.hpp)
 
 target_link_libraries(run_tests gtest pthread)
