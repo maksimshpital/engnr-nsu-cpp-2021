@@ -1,4 +1,4 @@
-enable_testing()
+
 
 add_executable(run_tests unit_tests.cpp
         ../AppException.cpp
@@ -14,4 +14,9 @@ add_executable(run_tests unit_tests.cpp
 
 target_link_libraries(run_tests gtest pthread)
 
+target_include_directories(calculator_tests
+        PRIVATE "../third-party/googletest/googletest/include/gtest"
+        )
+
+enable_testing()
 add_test(run_test  tests)
