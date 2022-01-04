@@ -1,5 +1,5 @@
 
-add_executable(run_tests unit_tests.cpp
+add_executable(tests unit_tests.cpp
 ../AppException.cpp
 ../AppException.h
 ../Command.cpp
@@ -11,11 +11,11 @@ add_executable(run_tests unit_tests.cpp
 ../Helper.h
 ../third-party/SafeInt/SafeInt.hpp)
 
-target_link_libraries(run_tests gtest pthread)
+target_link_libraries(tests gtest pthread)
 
-target_include_directories(run_tests
+target_include_directories(tests
 PRIVATE "../third-party/googletest/googletest/include/gtest"
 )
 
 enable_testing()
-add_test(NAME unit_tests COMMAND run_tests)
+add_test(NAME googletest COMMAND tests)
