@@ -16,5 +16,3 @@ target_include_directories(run_tests
         PRIVATE "../libs/googletest/googletest/include"
         )
 
-enable_testing()
-add_test(NAME tests COMMAND run_tests)
