@@ -6,7 +6,7 @@
 #include <vector>
 #include "Context.h"
 #include "AppException.h"
-#include "SafeInt.hpp"
+#include "third-party/SafeInt/SafeInt.hpp"
 
 
 class Command {

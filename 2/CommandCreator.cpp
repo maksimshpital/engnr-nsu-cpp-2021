@@ -1,6 +1,6 @@
 #include <memory>
 #include "CommandCreator.h"
-#include "SafeInt.hpp"
+#include "third-party/SafeInt/SafeInt.hpp"
 
 std::unique_ptr<Command> CommandCreator::create(const std::string& str) const {
     return std::unique_ptr<Command> (nullptr);

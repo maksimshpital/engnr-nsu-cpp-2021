@@ -7,7 +7,7 @@
 #include "Helper.h"
 #include "Context.h"
 #include "AppException.h"
-#include "SafeInt.hpp"
+#include "third-party/SafeInt/SafeInt.hpp"
 
 class CommandCreator {
 protected:
