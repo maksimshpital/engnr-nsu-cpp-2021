@@ -4,7 +4,7 @@
 #include <stack>
 #include <string>
 #include <map>
-#include "hird-party/SafeInt/SafeInt.hpp"
+#include "third-party/SafeInt/SafeInt.hpp"
 
 class Context {
 public:
