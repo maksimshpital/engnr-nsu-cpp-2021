@@ -16,3 +16,4 @@ target_include_directories(run_tests
         PRIVATE "../libs/googletest/googletest/include"
         )
 
+add_test(tests run_tests)

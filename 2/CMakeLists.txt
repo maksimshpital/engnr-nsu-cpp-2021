@@ -24,7 +24,6 @@ add_executable (
 
 enable_testing()
 
-add_test(tests run_tests)
 
 target_include_directories (stack_calc
             PUBLIC third-party/SafeInt
