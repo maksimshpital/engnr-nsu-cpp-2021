@@ -1,5 +1,4 @@
-project(test CXX C)
-cmake_minimum_required(VERSION 3.10)
+
 
 add_executable(run_tests unit_tests.cpp
         ../AppException.cpp
