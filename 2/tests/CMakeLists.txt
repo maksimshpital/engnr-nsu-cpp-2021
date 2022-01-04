@@ -1,16 +1,15 @@
-add_executable(run_tests
+add_executable(tests
         unit_tests.cpp
         )
 
-target_link_libraries(run_tests
-        tests
+target_link_libraries(tests
         gtest
         pthread
         )
 
-target_include_directories(run_tests
+target_include_directories(tests
         PRIVATE "../third-party/googletest/googletest/include"
         )
 
 enable_testing()
-add_test(NAME googletest COMMAND run_tests)
+add_test(NAME googletest COMMAND tests)
