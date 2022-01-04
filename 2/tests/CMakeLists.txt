@@ -18,4 +18,4 @@ PRIVATE "../third-party/googletest/googletest/include/gtest"
 )
 
 enable_testing()
-add_test(NAME run_tests COMMAND unit_tests.cpp)
+add_test(NAME run_tests COMMAND unit_tests)
