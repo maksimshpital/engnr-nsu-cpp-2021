@@ -13,3 +13,6 @@ add_executable(run_tests unit_tests.cpp
         ../third-party/SafeInt/SafeInt.hpp)
 
 target_link_libraries(run_tests gtest pthread)
+
+enable_testing()
+add_test(tests unit_tests)
