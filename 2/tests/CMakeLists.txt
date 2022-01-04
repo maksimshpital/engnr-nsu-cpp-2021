@@ -17,4 +17,4 @@ target_include_directories(run_tests
         )
 
 enable_testing()
-add_test(unit_tests run_tests)
+add_test(tests run_tests)
