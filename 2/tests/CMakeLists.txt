@@ -14,5 +14,4 @@ add_executable(run_tests unit_tests.cpp
 
 target_link_libraries(run_tests gtest pthread)
 
-enable_testing()
 add_test(run_test  tests)
