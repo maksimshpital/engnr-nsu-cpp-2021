@@ -11,6 +11,6 @@ add_executable(run_tests unit_tests.cpp
         ../Context.h
         ../Helper.cpp
         ../Helper.h
-        ../SafeInt.hpp)
+        ../third-party/SafeInt/SafeInt.hpp)
 
 target_link_libraries(run_tests gtest pthread)
