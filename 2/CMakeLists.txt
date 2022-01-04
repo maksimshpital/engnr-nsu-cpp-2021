@@ -24,6 +24,8 @@ add_executable (
 
 enable_testing()
 
+add_test(tests unit_tests)
+
 target_include_directories (stack_calc
             PUBLIC third-party/SafeInt
             PUBLIC trird-party/googletest/googletest/include/gtest
