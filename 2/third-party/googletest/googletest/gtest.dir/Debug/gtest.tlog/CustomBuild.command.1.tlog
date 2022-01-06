@@ -1,0 +1,10 @@
+^C:\USERS\USER\ENGNR-NSU-CPP-2021\2\THIRD-PARTY\GOOGLETEST\GOOGLETEST\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/User/engnr-nsu-cpp-2021/2 -BC:/Users/User/engnr-nsu-cpp-2021/2 --check-stamp-file C:/Users/User/engnr-nsu-cpp-2021/2/third-party/googletest/googletest/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
