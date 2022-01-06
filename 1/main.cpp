@@ -7,10 +7,10 @@ int main(int args, char *argv[])
     std::string help, folder, method;
     
    std::string help = "Use cases:\n";
-   std::string help += "./hasher -m <method> <filename>\n";
-   std::string help += "or\n";
-   std::string help += "./hasher <filename> -m <method>\n";
-   std::string help += "<method> is adler32 or sum64";
+   std::string help = "./hasher -m <method> <filename>\n";
+   std::string help = "or\n";
+   std::string help = "./hasher <filename> -m <method>\n";
+   std::string help = "<method> is adler32 or sum64";
 
     if (args == 2){
         if (!strcmp(argv[1], "-h")){
