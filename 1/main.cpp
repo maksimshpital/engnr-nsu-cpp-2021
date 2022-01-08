@@ -51,7 +51,7 @@ int main(int args, char *argv[])
         }
     }
 
-    inf.open(folder, ios_base::binary);
+    inf.open(folder, std::ios_base::binary);
 
     if (!(inf.is_open())){
         std::cerr << "Error, file is not found" << "\n"
@@ -65,8 +65,8 @@ int main(int args, char *argv[])
         if (method == "adler32")
             std::cout << std::hex << adler32(inf) << "\n";
     }
-    catch (exception &error){
-        std::cerr << error.what();
+    catch (std::exception &error){
+        std::cerr << std::error.what();
         return 1;
     }
     return 0;
