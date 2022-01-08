@@ -1,7 +1,7 @@
 #include "Hash.h"
 
 
-uint64_t sum64(ifstream &inf){
+uint64_t sum64(std::ifstream &inf){
     if (inf.peek() == EOF)
         return 0;
     uint64_t nb = 0, outcome = 0;
@@ -20,7 +20,7 @@ uint64_t sum64(ifstream &inf){
     return nb;
 }
 
-uint32_t adler32(ifstream &inf){
+uint32_t adler32(std::ifstream &inf){
     if (inf.peek() == EOF)
         return 1;
     uint32_t nb_1 = 1;
