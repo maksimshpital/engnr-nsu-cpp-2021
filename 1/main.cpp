@@ -4,7 +4,7 @@
 int main(int args, char *argv[])
 {
     std::ifstream inf;
-    string help, folder, method;
+    std::string help, folder, method;
     
     help = "Use cases:\n";
     help += "./hasher -m <method> <filename>\n";
@@ -66,7 +66,7 @@ int main(int args, char *argv[])
             std::cout << std::hex << adler32(inf) << "\n";
     }
     catch (exception &error){
-        st::cerr << error.what();
+        std::cerr << error.what();
         return 1;
     }
     return 0;
