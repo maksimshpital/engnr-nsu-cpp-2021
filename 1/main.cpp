@@ -3,7 +3,7 @@
 
 int main(int args, char *argv[])
 {
-    ifstream inf;
+    std::ifstream inf;
     string help, folder, method;
     
     help = "Use cases:\n";
@@ -14,11 +14,11 @@ int main(int args, char *argv[])
 
     if (args == 2){
         if (!strcmp(argv[1], "-h")){
-            cout << help << "\n";
+            std::cout << help << "\n";
             return 0;
         }
         else{
-            cerr << "Error, invalid command. " << "\n"
+            std::cerr << "Error, invalid command. " << "\n"
                  << help << "\n";
             return 1;
         }
@@ -33,19 +33,19 @@ int main(int args, char *argv[])
             folder = argv[1];
         }
         else{
-            cerr << "Error, incorrect arguments" << "\n"
+            std::cerr << "Error, incorrect arguments" << "\n"
                  << help << "\n";
             return 1;
         }
     }
     else{
         if (args == 1){
-            cerr << "Error, no arguments" << "\n"
+            std::cerr << "Error, no arguments" << "\n"
                  << help << "\n";
             return 1;
         }
         else{
-            cerr << "Error, unknown command" << "\n"
+            std::cerr << "Error, unknown command" << "\n"
                  << help << "\n";
             return 1;
         }
@@ -54,19 +54,19 @@ int main(int args, char *argv[])
     inf.open(folder, ios_base::binary);
 
     if (!(inf.is_open())){
-        cerr << "Error, file is not found" << "\n"
+        std::cerr << "Error, file is not found" << "\n"
              << help << "\n";
         return 1;
     }
 
     try{
         if (method == "sum64")
-            cout << hex << sum64(inf) << "\n";
+            std::cout << std::hex << sum64(inf) << "\n";
         if (method == "adler32")
-            cout << hex << adler32(inf) << "\n";
+            std::cout << std::hex << adler32(inf) << "\n";
     }
     catch (exception &error){
-        cerr << error.what();
+        st::cerr << error.what();
         return 1;
     }
     return 0;
