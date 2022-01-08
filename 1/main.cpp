@@ -66,7 +66,7 @@ int main(int args, char *argv[])
             std::cout << std::hex << adler32(inf) << "\n";
     }
     catch (std::exception &error){
-        std::cerr << std::error.what();
+        std::cerr << error.what();
         return 1;
     }
     return 0;
